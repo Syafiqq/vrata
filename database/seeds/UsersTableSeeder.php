@@ -22,10 +22,10 @@ class UsersTableSeeder extends Seeder
     {
         // @formatter:off
         $raw = [
-            ['name' => 'user1', 'email' => 'user1@mail.com'],
-            ['name' => 'user2', 'email' => 'user2@mail.com'],
-            ['name' => 'user3', 'email' => 'user3@mail.com'],
-            ['name' => 'user4', 'email' => 'user4@mail.com'],
+            ['display_name' => 'user1', 'email' => 'user1@mail.com'],
+            ['display_name' => 'user2', 'email' => 'user2@mail.com'],
+            ['display_name' => 'user3', 'email' => 'user3@mail.com'],
+            ['display_name' => 'user4', 'email' => 'user4@mail.com'],
         ];
         // @formatter:on
 
@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
         {
             /** @var \App\User $user */
             $user = $users[$i];
-            $user->{'name'} = $raw[$i]['name'];
+            $user->{'display_name'} = $raw[$i]['display_name'];
             $user->{'email'} = $raw[$i]['email'];
             $user->{'password'} = 'password';
             $user->save();

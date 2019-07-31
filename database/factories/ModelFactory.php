@@ -13,7 +13,7 @@
 
 $factory->define(App\User::class, function ($faker) {
     return [
-        'name' => $faker->name,
+        'display_name' => $faker->name,
         'email' => $faker->email,
     ];
 });
