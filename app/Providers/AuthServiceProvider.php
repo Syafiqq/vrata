@@ -33,6 +33,5 @@ class AuthServiceProvider extends ServiceProvider
             'scope-2' => 'Scope 2',
         ]);
         LumenPassport::routes($this->app);
-        Passport::enableImplicitGrant();
     }
 }
