@@ -39,4 +39,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         $this->attributes['password'] = password_hash($value, PASSWORD_BCRYPT);
     }
+
+    /**
+     * Find the user instance for the given username.
+     *
+     * @param  string  $attr
+     * @return \App\User
+     */
+    public function findForPassport($attr)
+    {
+        return $this->where('email', $attr)->first();
+    }
 }
