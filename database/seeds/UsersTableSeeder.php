@@ -40,7 +40,6 @@ class UsersTableSeeder extends Seeder
             $user = $users[$i];
             $user->{'display_name'} = $raw[$i]['display_name'];
             $user->{'email'} = $raw[$i]['email'];
-            $user->{'password'} = 'password';
             $user->save();
         }
     }
