@@ -28,6 +28,11 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Passport::tokensCan([
+            'scope-1' => 'Scope 1',
+            'scope-2' => 'Scope 2',
+        ]);
         LumenPassport::routes($this->app);
+        Passport::enableImplicitGrant();
     }
 }

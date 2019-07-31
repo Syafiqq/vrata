@@ -46,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->registerRoutes();
 
+        Passport::ignoreMigrations();
         Passport::tokensExpireIn(Carbon::now()->addDays(15));
         Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
         LumenPassport::tokensExpireIn(Carbon::now()->addYears(50), 2);
