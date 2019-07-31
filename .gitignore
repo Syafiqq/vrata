@@ -6,3 +6,5 @@ storage/oauth-private.key
 storage/oauth-public.key
 /.idea
 /composer.lock
+/files
+/patches
