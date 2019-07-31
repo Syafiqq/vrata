@@ -8,3 +8,4 @@ storage/oauth-public.key
 /composer.lock
 /files
 /patches
+/db.sqlite
