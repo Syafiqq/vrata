@@ -33,14 +33,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     ];
 
     /**
-     * @param $value
-     */
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = password_hash($value, PASSWORD_BCRYPT);
-    }
-
-    /**
      * Find the user instance for the given username.
      *
      * @param  string  $attr
