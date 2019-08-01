@@ -7,7 +7,7 @@ namespace Tests\Feature\Api\Grant;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use Tests\TestCase;
+use TestCase;
 
 class PersonalAccessGrantTest extends TestCase
 {

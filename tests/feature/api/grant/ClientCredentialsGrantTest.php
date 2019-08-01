@@ -11,7 +11,7 @@ namespace Tests\Feature\Api;
 
 
 use Illuminate\Support\Facades\DB;
-use Tests\TestCase;
+use TestCase;
 
 class ClientCredentialsGrantTest extends TestCase
 {

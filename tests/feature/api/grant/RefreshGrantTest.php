@@ -12,7 +12,7 @@ namespace Tests\Feature\Api\Grant;
 
 use App\User;
 use Illuminate\Support\Facades\DB;
-use Tests\TestCase;
+use TestCase;
 
 class RefreshGrantTest extends TestCase
 {
