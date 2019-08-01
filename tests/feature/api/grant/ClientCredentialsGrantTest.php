@@ -71,7 +71,7 @@ class ClientCredentialsGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
+        var_dump(json_decode($response->getContent(), true));
         self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
@@ -92,7 +92,7 @@ class ClientCredentialsGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
+        var_dump(json_decode($response->getContent(), true));
         self::assertThat($response->getStatusCode(), self::equalTo(400));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
@@ -112,7 +112,7 @@ class ClientCredentialsGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
+        var_dump(json_decode($response->getContent(), true));
         self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
@@ -133,7 +133,7 @@ class ClientCredentialsGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
+        var_dump(json_decode($response->getContent(), true));
         self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
@@ -161,7 +161,7 @@ class ClientCredentialsGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
+        var_dump(json_decode($response->getContent(), true));
         self::assertThat($response->getStatusCode(), self::equalTo(401));
         $access_token = DB::table('oauth_access_tokens')
             ->first();

@@ -65,8 +65,8 @@ class RefreshGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
-        $result = $response->json();
+        var_dump(json_decode($response->getContent(), true));
+        $result = json_decode($response->getContent(), true);
         self::assertThat($result, self::arrayHasKey('token_type'));
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
@@ -93,8 +93,8 @@ class RefreshGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
-        $result = $response->json();
+        var_dump(json_decode($response->getContent(), true));
+        $result = json_decode($response->getContent(), true);
         self::assertThat($result, self::arrayHasKey('token_type'));
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
@@ -123,8 +123,8 @@ class RefreshGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
-        $result = $response->json();
+        var_dump(json_decode($response->getContent(), true));
+        $result = json_decode($response->getContent(), true);
         self::assertThat($result, self::arrayHasKey('token_type'));
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
@@ -157,8 +157,8 @@ class RefreshGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
-        $result = $response->json();
+        var_dump(json_decode($response->getContent(), true));
+        $result = json_decode($response->getContent(), true);
         self::assertThat($result, self::arrayHasKey('token_type'));
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
@@ -201,8 +201,8 @@ class RefreshGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
-        $result = $response->json();
+        var_dump(json_decode($response->getContent(), true));
+        $result = json_decode($response->getContent(), true);
         self::assertThat($result, self::arrayHasKey('token_type'));
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
@@ -228,8 +228,8 @@ class RefreshGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
-        $result = $response->json();
+        var_dump(json_decode($response->getContent(), true));
+        $result = json_decode($response->getContent(), true);
         self::assertThat($result, self::arrayHasKey('token_type'));
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
@@ -295,7 +295,7 @@ class RefreshGrantTest extends TestCase
         $response = $this->post('/oauth/token', $body)
             ->response;
         var_dump($body);
-        var_dump($response->json());
+        var_dump(json_decode($response->getContent(), true));
         self::assertThat($response->getStatusCode(), self::equalTo(401));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
