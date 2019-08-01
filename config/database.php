@@ -35,7 +35,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => database_path(env('DB_DATABASE', 'database.sqlite')),
+            'database' => base_path(env('DB_DATABASE', 'database.sqlite')),
             'prefix' => env('DB_PREFIX', ''),
         ],
 
