@@ -41,7 +41,8 @@ class ClientCredentialsGrantTest extends TestCase
 
     public function test_it_access_token_route_with_no_arguments_provided__bad_request()
     {
-        $response = $this->post('/oauth/token');
+        $response = $this->post('/oauth/token')
+            ->response;
         self::assertThat($response->status(), self::equalTo(400));
     }
 
@@ -52,7 +53,8 @@ class ClientCredentialsGrantTest extends TestCase
             'client_id' => 'client-id',
             'client_secret' => 'client-secret',
             'scope' => 'your-scope',
-        ]);
+        ])
+            ->response;
         self::assertThat($response->status(), self::equalTo(401));
     }
 
@@ -66,7 +68,8 @@ class ClientCredentialsGrantTest extends TestCase
             'scope' => '*',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(200));
@@ -86,7 +89,8 @@ class ClientCredentialsGrantTest extends TestCase
             'scope' => 'this_is_wrong_scope',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(400));
@@ -105,7 +109,8 @@ class ClientCredentialsGrantTest extends TestCase
             'client_secret' => $this->client->{'secret'},
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(200));
@@ -125,7 +130,8 @@ class ClientCredentialsGrantTest extends TestCase
             'scope' => '',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(200));
@@ -152,7 +158,8 @@ class ClientCredentialsGrantTest extends TestCase
             'scope' => '*',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(401));

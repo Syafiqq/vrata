@@ -62,7 +62,8 @@ class RefreshGrantTest extends TestCase
             'scope' => 'scope-1 scope-2',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         $result = $response->json();
@@ -89,7 +90,8 @@ class RefreshGrantTest extends TestCase
             'client_secret' => $this->client->{'secret'},
             'scope' => 'scope-1 scope-2',
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         $result = $response->json();
@@ -118,7 +120,8 @@ class RefreshGrantTest extends TestCase
             'client_secret' => $this->client->{'secret'},
             'scope' => 'scope-1',
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         $result = $response->json();
@@ -151,7 +154,8 @@ class RefreshGrantTest extends TestCase
             'client_secret' => $this->client->{'secret'},
             'scope' => 'scope-1 scope-2',
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         $result = $response->json();
@@ -178,7 +182,8 @@ class RefreshGrantTest extends TestCase
             'client_secret' => 'client-secret',
             'scope' => '',
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         self::assertThat($response->status(), self::equalTo(401));
     }
 
@@ -193,7 +198,8 @@ class RefreshGrantTest extends TestCase
             'client_secret' => $this->client->{'secret'},
             'scope' => '',
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         $result = $response->json();
@@ -219,7 +225,8 @@ class RefreshGrantTest extends TestCase
             'client_id' => $this->client->{'id'},
             'client_secret' => $this->client->{'secret'},
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         $result = $response->json();
@@ -245,7 +252,8 @@ class RefreshGrantTest extends TestCase
             'client_secret' => $this->client->{'secret'},
             'scope' => 'scope-1 scope-2',
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         self::assertThat($response->status(), self::equalTo(400));
     }
 
@@ -260,7 +268,8 @@ class RefreshGrantTest extends TestCase
             'client_secret' => $this->client->{'secret'},
             'scope' => 'scope-1 scope-2',
         ];
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         self::assertThat($response->status(), self::equalTo(401));
     }
 
@@ -283,7 +292,8 @@ class RefreshGrantTest extends TestCase
             'scope' => 'scope-1 scope-2',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(401));

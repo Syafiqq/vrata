@@ -51,7 +51,8 @@ class PasswordGrantTest extends TestCase
 
     public function test_it_access_token_route_with_no_arguments_provided__bad_request()
     {
-        $response = $this->post('/oauth/token');
+        $response = $this->post('/oauth/token')
+            ->response;
         self::assertThat($response->status(), self::equalTo(400));
     }
 
@@ -64,7 +65,8 @@ class PasswordGrantTest extends TestCase
             'username' => 'taylor@laravel.com',
             'password' => 'my-password',
             'scope' => '',
-        ]);
+        ])
+            ->response;
         self::assertThat($response->status(), self::equalTo(401));
     }
 
@@ -80,7 +82,8 @@ class PasswordGrantTest extends TestCase
             'scope' => '*',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(200));
@@ -102,8 +105,10 @@ class PasswordGrantTest extends TestCase
             'scope' => '*',
         ];
 
-        $response = $this->post('/oauth/token', $body);
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(200));
@@ -126,7 +131,8 @@ class PasswordGrantTest extends TestCase
             'scope' => 'this_is_wrong_scope',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(400));
@@ -147,7 +153,8 @@ class PasswordGrantTest extends TestCase
             'password' => $this->user->{'password'},
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(200));
@@ -169,7 +176,8 @@ class PasswordGrantTest extends TestCase
             'scope' => '',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(200));
@@ -198,7 +206,8 @@ class PasswordGrantTest extends TestCase
             'scope' => '*',
         ];
 
-        $response = $this->post('/oauth/token', $body);
+        $response = $this->post('/oauth/token', $body)
+            ->response;
         var_dump($body);
         var_dump($response->json());
         self::assertThat($response->status(), self::equalTo(401));
