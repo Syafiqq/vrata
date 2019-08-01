@@ -43,7 +43,7 @@ class ClientCredentialsGrantTest extends TestCase
     {
         $response = $this->post('/oauth/token')
             ->response;
-        self::assertThat($response->status(), self::equalTo(400));
+        self::assertThat($response->getStatusCode(), self::equalTo(400));
     }
 
     public function test_it_access_token_route_with_wrong_arguments__unauthorized()
@@ -55,7 +55,7 @@ class ClientCredentialsGrantTest extends TestCase
             'scope' => 'your-scope',
         ])
             ->response;
-        self::assertThat($response->status(), self::equalTo(401));
+        self::assertThat($response->getStatusCode(), self::equalTo(401));
     }
 
     public function test_it_access_token_route_with_right_arguments__ok()
@@ -72,7 +72,7 @@ class ClientCredentialsGrantTest extends TestCase
             ->response;
         var_dump($body);
         var_dump($response->json());
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
         var_dump($access_token);
@@ -93,7 +93,7 @@ class ClientCredentialsGrantTest extends TestCase
             ->response;
         var_dump($body);
         var_dump($response->json());
-        self::assertThat($response->status(), self::equalTo(400));
+        self::assertThat($response->getStatusCode(), self::equalTo(400));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
         var_dump($access_token);
@@ -113,7 +113,7 @@ class ClientCredentialsGrantTest extends TestCase
             ->response;
         var_dump($body);
         var_dump($response->json());
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
         var_dump($access_token);
@@ -134,7 +134,7 @@ class ClientCredentialsGrantTest extends TestCase
             ->response;
         var_dump($body);
         var_dump($response->json());
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
         var_dump($access_token);
@@ -162,7 +162,7 @@ class ClientCredentialsGrantTest extends TestCase
             ->response;
         var_dump($body);
         var_dump($response->json());
-        self::assertThat($response->status(), self::equalTo(401));
+        self::assertThat($response->getStatusCode(), self::equalTo(401));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
         var_dump($access_token);

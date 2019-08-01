@@ -71,7 +71,7 @@ class RefreshGrantTest extends TestCase
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
         self::assertThat($result, self::arrayHasKey('refresh_token'));
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
         var_dump($access_token);
@@ -99,7 +99,7 @@ class RefreshGrantTest extends TestCase
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
         self::assertThat($result, self::arrayHasKey('refresh_token'));
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->count();
         var_dump($access_token);
@@ -129,7 +129,7 @@ class RefreshGrantTest extends TestCase
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
         self::assertThat($result, self::arrayHasKey('refresh_token'));
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->get();
         var_dump($access_token);
@@ -163,7 +163,7 @@ class RefreshGrantTest extends TestCase
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
         self::assertThat($result, self::arrayHasKey('refresh_token'));
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->get();
         var_dump($access_token);
@@ -184,7 +184,7 @@ class RefreshGrantTest extends TestCase
         ];
         $response = $this->post('/oauth/token', $body)
             ->response;
-        self::assertThat($response->status(), self::equalTo(401));
+        self::assertThat($response->getStatusCode(), self::equalTo(401));
     }
 
     public function test_it_access_refresh_route_with_right_argument_but_empty_scope__ok()
@@ -207,7 +207,7 @@ class RefreshGrantTest extends TestCase
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
         self::assertThat($result, self::arrayHasKey('refresh_token'));
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->get();
         var_dump($access_token);
@@ -234,7 +234,7 @@ class RefreshGrantTest extends TestCase
         self::assertThat($result, self::arrayHasKey('expires_in'));
         self::assertThat($result, self::arrayHasKey('access_token'));
         self::assertThat($result, self::arrayHasKey('refresh_token'));
-        self::assertThat($response->status(), self::equalTo(200));
+        self::assertThat($response->getStatusCode(), self::equalTo(200));
         $access_token = DB::table('oauth_access_tokens')
             ->get();
         var_dump($access_token);
@@ -254,7 +254,7 @@ class RefreshGrantTest extends TestCase
         ];
         $response = $this->post('/oauth/token', $body)
             ->response;
-        self::assertThat($response->status(), self::equalTo(400));
+        self::assertThat($response->getStatusCode(), self::equalTo(400));
     }
 
     public function test_it_access_refresh_route_with_wrong_refresh_token__unauthorized()
@@ -270,7 +270,7 @@ class RefreshGrantTest extends TestCase
         ];
         $response = $this->post('/oauth/token', $body)
             ->response;
-        self::assertThat($response->status(), self::equalTo(401));
+        self::assertThat($response->getStatusCode(), self::equalTo(401));
     }
 
     public function test_it_access_refresh_route_with_revoked_refresh_token__unauthorized()
@@ -296,7 +296,7 @@ class RefreshGrantTest extends TestCase
             ->response;
         var_dump($body);
         var_dump($response->json());
-        self::assertThat($response->status(), self::equalTo(401));
+        self::assertThat($response->getStatusCode(), self::equalTo(401));
         $access_token = DB::table('oauth_access_tokens')
             ->first();
         var_dump($access_token);

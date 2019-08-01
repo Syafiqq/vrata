@@ -209,7 +209,7 @@ class PersonalAccessGrantTest extends TestCase
             $response = $this->actingAs($this->user)
                 ->post('/oauth/personal-access-tokens', $body)
                 ->response;
-            self::assertThat($response->status(), self::equalTo(302));
+            self::assertThat($response->getStatusCode(), self::equalTo(302));
             var_dump($response->json());
         }
         catch (ValidationException $e){
@@ -234,7 +234,7 @@ class PersonalAccessGrantTest extends TestCase
             $response = $this->actingAs($this->user)
                 ->post('/oauth/personal-access-tokens', $body)
                 ->response;
-            self::assertThat($response->status(), self::equalTo(200));
+            self::assertThat($response->getStatusCode(), self::equalTo(200));
             var_dump($response->json());
             self::assertThat($response->json(), self::logicalNot(self::isNull()));
             $personal = DB::table('oauth_access_tokens')->get();
@@ -269,7 +269,7 @@ class PersonalAccessGrantTest extends TestCase
             $response = $this->actingAs($this->user)
                 ->post('/oauth/personal-access-tokens', $body)
                 ->response;
-            self::assertThat($response->status(), self::equalTo(200));
+            self::assertThat($response->getStatusCode(), self::equalTo(200));
             var_dump($response->json());
             self::assertThat($response->json(), self::logicalNot(self::isNull()));
             $personal = DB::table('oauth_access_tokens')->get();
@@ -317,7 +317,7 @@ class PersonalAccessGrantTest extends TestCase
             $response = $this->actingAs($this->user)
                 ->post('/oauth/personal-access-tokens', $body)
                 ->response;
-            self::assertThat($response->status(), self::equalTo(302));
+            self::assertThat($response->getStatusCode(), self::equalTo(302));
             var_dump($response->json());
         }
         catch (ValidationException $e){
@@ -361,7 +361,7 @@ class PersonalAccessGrantTest extends TestCase
             $response = $this->actingAs($this->user)
                 ->post('/oauth/personal-access-tokens', $body)
                 ->response;
-            self::assertThat($response->status(), self::equalTo(302));
+            self::assertThat($response->getStatusCode(), self::equalTo(302));
             var_dump($response->json());
         }
         catch (ValidationException $e){
@@ -404,7 +404,7 @@ class PersonalAccessGrantTest extends TestCase
             $response = $this->actingAs($this->user)
                 ->post('/oauth/personal-access-tokens', $body)
                 ->response;
-            self::assertThat($response->status(), self::equalTo(302));
+            self::assertThat($response->getStatusCode(), self::equalTo(302));
             var_dump($response->json());
         }
         catch (ValidationException $e){
